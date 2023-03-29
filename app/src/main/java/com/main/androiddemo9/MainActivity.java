@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -27,8 +28,12 @@ public class MainActivity extends AppCompatActivity implements
 
     private UserStorage users;
 
+    private CheckBox cBox1;
+    private CheckBox cBox2;
+    private CheckBox cBox3;
+    private CheckBox cBox4;
     private String[] photos = { "Valitse kuva...","photo1", "photo2", "photo3", "photo4", "photo5" };
-
+    private String[] examStr = {"Kandidaatin tutkinto","Diplomi-Insinöörin tutkinto","Tekniikan tohtorin tutkinto","Uimamaisteri"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +55,11 @@ public class MainActivity extends AppCompatActivity implements
         tv_lastName = findViewById(R.id.viewLastName);
         tv_email = findViewById(R.id.viewEmail);
         rg_LineOfStydy= findViewById(R.id.radioGroup);
+
+        cBox1 = findViewById(R.id.checkBox1);
+        cBox2 = findViewById(R.id.checkBox2);
+        cBox3 = findViewById(R.id.checkBox3);
+        cBox4 = findViewById(R.id.checkBox4);
 
     }
 
@@ -82,6 +92,11 @@ public class MainActivity extends AppCompatActivity implements
             System.out.println("Kuvan nimi: " + spinnerText);
             imageView.setImageResource(selectImageId(spinnerText));
             Exam exam = new Exam();
+            if (cBox1.isChecked()) exam.addExam(examStr[0]);
+            if (cBox2.isChecked()) exam.addExam(examStr[1]);
+            if (cBox3.isChecked()) exam.addExam(examStr[2]);
+            if (cBox4.isChecked()) exam.addExam(examStr[3]);
+
             // Lisätään käyttäjä
             User newUser = new User(fName, lName,email,lineOfStudy,exam);
 

@@ -30,7 +30,7 @@ public class StudentListAdapter extends RecyclerView.Adapter<StudentViewHolder> 
         studentViewHolder.studentLinOfStudy.setText(users.get(i).getDegreeProgram());
         //System.out.println(users.get(i).getEmail());
         studentViewHolder.studentEmail.setText(String.valueOf(users.get(i).getEmail()));
-
+        studentViewHolder.studentExam.setText(String.valueOf(users.get(i).toString()));
         studentViewHolder.imageView.setImageResource(users.get(i).getImageId());
     }
     public StudentListAdapter(Context context, ArrayList<User> users) {

@@ -21,7 +21,7 @@
         android:id="@+id/viewFirstName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Etunimi..."
         android:inputType="textPersonName"
@@ -34,7 +34,6 @@
         android:id="@+id/viewLastName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Sukunimi..."
         android:inputType="textPersonName"
@@ -47,7 +46,6 @@
         android:id="@+id/viewEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Sähköposti..."
         android:inputType="textPersonName|textEmailSubject"
@@ -61,8 +59,9 @@
         android:id="@+id/radioGroup"
         android:layout_width="212dp"
         android:layout_height="135dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/viewEmail">
 
@@ -95,31 +94,34 @@
         android:id="@+id/buttonAddUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="4dp"
         android:onClick="addNewUserToStorage"
         android:text="Lisää käyttäjä"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnBack"
+        app:layout_constraintHorizontal_bias="0.888"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageSpinner" />
+        app:layout_constraintTop_toBottomOf="@+id/imageSpinner"
+        app:layout_constraintVertical_bias="0.015" />
 
     <Button
         android:id="@+id/btnBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="88dp"
         android:onClick="switchMainActivity"
         android:text="Takaisin..."
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonAddUser"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/imageSpinner"
+        app:layout_constraintVertical_bias="0.036" />
 
     <Spinner
         android:id="@+id/imageSpinner"
         android:layout_width="199dp"
         android:layout_height="44dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:dropDownWidth="wrap_content"
         android:focusableInTouchMode="false"
         app:layout_constraintEnd_toEndOf="parent"
@@ -130,13 +132,13 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:text="Valitse kuva:"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.322"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup2" />
 
     <ImageView
         android:id="@+id/imageViewSelected"
@@ -150,5 +152,39 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.036"
         app:srcCompat="@drawable/ic_launcher_background" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup2"
+        android:layout_width="229dp"
+        android:layout_height="145dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup">
+
+        <CheckBox
+            android:id="@+id/checkBox1"
+            android:layout_width="217dp"
+            android:layout_height="wrap_content"
+            android:text="Kandidaatin tutkinto" />
+
+        <CheckBox
+            android:id="@+id/checkBox2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Diplomi-Insinöörin tutkinto" />
+
+        <CheckBox
+            android:id="@+id/checkBox3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tekniikan tohtorin tutkinto" />
+
+        <CheckBox
+            android:id="@+id/checkBox4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Uimamaisteri" />
+    </RadioGroup>
 
 </android.support.constraint.ConstraintLayout>

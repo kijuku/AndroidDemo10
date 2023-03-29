@@ -16,6 +16,9 @@ public class Exam {
     public ArrayList<String> getExam() {
         return exam;
     }
+    public String getExam(int position) {
+        return exam.get(position);
+    }
 
     public void setExam(ArrayList<String> exam) {
         this.exam = exam;
@@ -25,12 +28,14 @@ public class Exam {
         this.exam.add(newExam);
     }
 
-    public String toString(){
-        String t = "Suoritetut tutkinnot:\n";
-        for (String s: this.getExam()) {
-            t += "-" + s + "\n";
+    public String listExam(){
+        String t = "";
+        for (int i = 0; i < exam.size(); i++ ){
+            t += "-" + exam.get(i) + "\n";
         }
-
         return t;
+    }
+    public String toString(int position){
+        return exam.get(position);
     }
 }
