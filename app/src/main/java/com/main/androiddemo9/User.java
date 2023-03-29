@@ -1,21 +1,41 @@
 package com.main.androiddemo9;
 
-public class User {
+import java.util.ArrayList;
+
+public class User extends Exam {
     protected String firstName;
     protected String lastName;
     protected String email;
     protected String degreeProgram;
 
+    //protected ArrayList<String> exam = new ArrayList<>();
+    protected Exam exam;
     protected int imageId;
 
-    public User(String firstName, String lastName, String email, String degreeProgram) {
+    public User(String firstName, String lastName, String email, String degreeProgram, Exam exam) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.degreeProgram = degreeProgram;
-        this.imageId = R.drawable.ic_launcher_background;
+        this.imageId = R.drawable.photo1;
+        this.exam = exam;
     }
-
+    public User(String firstName, String lastName, String email, String degreeProgram, int imageId, Exam exam) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.degreeProgram = degreeProgram;
+        this.imageId = imageId;
+        this.exam = exam;
+    }
+    public User(String firstName, String lastName, String email, String degreeProgram, int imageId, String exam) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.degreeProgram = degreeProgram;
+        this.imageId = imageId;
+        this.exam.addExam(exam);
+    }
     public User() {
 
     }

@@ -11,8 +11,8 @@ public class UserStorage extends User {
 
     }
 
-    private UserStorage(String firstName, String lastName, String email, String degreeProgram) {
-        super(firstName, lastName, email, degreeProgram);
+    private UserStorage(String firstName, String lastName, String email, String degreeProgram,Exam exam) {
+        super(firstName, lastName, email, degreeProgram,exam);
     }
 
     // Singleton

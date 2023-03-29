@@ -13,6 +13,8 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity implements
         AdapterView.OnItemSelectedListener {
     private TextView tv_firstName;
@@ -79,8 +81,9 @@ public class MainActivity extends AppCompatActivity implements
             String spinnerText = spinner.getSelectedItem().toString();
             System.out.println("Kuvan nimi: " + spinnerText);
             imageView.setImageResource(selectImageId(spinnerText));
+            Exam exam = new Exam();
             // Lisätään käyttäjä
-            User newUser = new User(fName, lName,email,lineOfStudy);
+            User newUser = new User(fName, lName,email,lineOfStudy,exam);
 
             // Asetetaan kuva newUserille
             newUser.setImageId(selectImageId(spinnerText));
