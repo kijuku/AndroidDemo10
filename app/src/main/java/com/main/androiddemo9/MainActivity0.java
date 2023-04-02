@@ -1,12 +1,22 @@
 package com.main.androiddemo9;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
-public class MainActivity0 extends AppCompatActivity {
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+
+public class MainActivity0 extends AppCompatActivity  {
     private UserStorage users;
+    private Context context;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -14,14 +24,13 @@ public class MainActivity0 extends AppCompatActivity {
 
         // Luodaan käyttäjäsäilö.
         users = UserStorage.getInstance();
-        //generateUsers(20);
-        System.out.println("UserStoragen sisältö:");
-        System.out.println("=====================");
+        context = MainActivity0.this;
 
-        for (User u : users.getUsers()) {
-            System.out.println(u);
-        }
-        System.out.println("");
+        users.loadUserData(context);
+        //generateUsers(20);
+
+        UserStorage.getInstance().printUserData();
+        //Toast.makeText(context, context.getFilesDir().toString(), Toast.LENGTH_SHORT).show();
 
     }
     public void generateUsers(int amount){
@@ -36,9 +45,7 @@ public class MainActivity0 extends AppCompatActivity {
             users.addUser(user);
         }
 
-        for (User u : users.getUsers()) {
-            System.out.println(u);
-        }
+        UserStorage.getInstance().printUserData();
     }
 
     public void switchAddUserActivity(View view){
@@ -56,7 +63,18 @@ public class MainActivity0 extends AppCompatActivity {
     }
 
     public void switchDeleteUserActivity(View view){
-        Intent intent = new Intent(this, MainActivity_spinner.class );
+        Intent intent = new Intent(this, MainActivityDelUsers.class );
         startActivity(intent);
     }
+
+    public void saveUserData(View view){
+      UserStorage.getInstance().saveUserData(context);
+      UserStorage.getInstance().printUserData();
+    }
+
+    public void loadUserData(View view){
+       UserStorage.getInstance().loadUserData(context);
+        UserStorage.getInstance().printUserData();
+    }
+
 }

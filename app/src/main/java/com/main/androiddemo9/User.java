@@ -1,8 +1,9 @@
 package com.main.androiddemo9;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class User extends Exam {
+public class User extends Exam implements Serializable {
     protected String firstName;
     protected String lastName;
     protected String email;

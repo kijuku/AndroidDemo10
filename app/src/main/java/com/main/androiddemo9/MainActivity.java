@@ -1,6 +1,7 @@
 package com.main.androiddemo9;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -13,11 +14,13 @@ import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements
-        AdapterView.OnItemSelectedListener {
+        AdapterView.OnItemSelectedListener , Serializable {
     private TextView tv_firstName;
     private TextView tv_lastName;
     private TextView tv_email;
@@ -34,6 +37,8 @@ public class MainActivity extends AppCompatActivity implements
     private CheckBox cBox4;
     private String[] photos = { "Valitse kuva...","photo1", "photo2", "photo3", "photo4", "photo5" };
     private String[] examStr = {"Kandidaatin tutkinto","Diplomi-Insinöörin tutkinto","Tekniikan tohtorin tutkinto","Uimamaisteri"};
+
+    private Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements
         cBox2 = findViewById(R.id.checkBox2);
         cBox3 = findViewById(R.id.checkBox3);
         cBox4 = findViewById(R.id.checkBox4);
+        context = MainActivity.this;
 
     }
 
@@ -108,12 +114,18 @@ public class MainActivity extends AppCompatActivity implements
 
             System.out.println("Lisätty käyttäjä:");
             System.out.println(newUser);
+
             System.out.println("UserStoragen käyttäjät:");
             System.out.println("=======================");
             for (User u : users.getUsers()){
                 System.out.println(u.toString());
             }
+            //Tallennetaan käyttäjät
+            UserStorage.getInstance().saveUserData(context);
+            UserStorage.getInstance().printUserData();
 
+            Toast.makeText(context, context.getFilesDir().toString(), Toast.LENGTH_SHORT).show();
+            System.out.println("Käyttäjä tallennettiin!");
         }
 
     }
@@ -142,6 +154,7 @@ public class MainActivity extends AppCompatActivity implements
     }
     public void switchMainActivity(View view){
         Intent intent = new Intent(this, MainActivity0.class );
+
         startActivity(intent);
     }
 

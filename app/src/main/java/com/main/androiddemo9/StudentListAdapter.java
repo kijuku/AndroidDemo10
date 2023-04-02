@@ -28,9 +28,9 @@ public class StudentListAdapter extends RecyclerView.Adapter<StudentViewHolder> 
 
         studentViewHolder.studentName.setText(sb.toString());
         studentViewHolder.studentLinOfStudy.setText(users.get(i).getDegreeProgram());
-        //System.out.println(users.get(i).getEmail());
+
         studentViewHolder.studentEmail.setText(String.valueOf(users.get(i).getEmail()));
-        studentViewHolder.studentExam.setText(String.valueOf(users.get(i).toString()));
+        studentViewHolder.studentExam.setText(String.valueOf(users.get(i).exam.listExam()));
         studentViewHolder.imageView.setImageResource(users.get(i).getImageId());
     }
     public StudentListAdapter(Context context, ArrayList<User> users) {
@@ -45,9 +45,6 @@ public class StudentListAdapter extends RecyclerView.Adapter<StudentViewHolder> 
     public void setUsers(ArrayList<User> users) {
         this.users = users;
     }
-
-
-
 
 
     @Override

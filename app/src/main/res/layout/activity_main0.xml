@@ -46,6 +46,7 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:onClick="switchDeleteUserActivity"
         android:text="Poista opiskelijoita"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,4 +65,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button3"
         app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btnSaveUserData"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
+        android:onClick="saveUserData"
+        android:text="Tallenna UserData"
+        app:layout_constraintEnd_toEndOf="@+id/button4"
+        app:layout_constraintStart_toStartOf="@+id/button4"
+        app:layout_constraintTop_toBottomOf="@+id/button4" />
+
+    <Button
+        android:id="@+id/btnLoadUserData"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
+        android:onClick="loadUserData"
+        android:text="Lataa UserData"
+        app:layout_constraintEnd_toEndOf="@+id/btnSaveUserData"
+        app:layout_constraintStart_toStartOf="@+id/btnSaveUserData"
+        app:layout_constraintTop_toBottomOf="@+id/btnSaveUserData" />
 </android.support.constraint.ConstraintLayout>

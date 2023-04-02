@@ -1,8 +1,9 @@
 package com.main.androiddemo9;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Exam {
+public class Exam implements Serializable {
     protected ArrayList<String> exam = new ArrayList<>();
 
     public Exam(){
